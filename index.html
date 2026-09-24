@@ -123,6 +123,66 @@
             flex: 1;
         }
 
+        /* ---- Rating buttons (Des PUS) ---- */
+        .rating-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .rating-label {
+            font-weight: 600;
+            color: #1e3c2c;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rating-label i {
+            color: #b58b3e;
+            width: 1.4rem;
+            text-align: center;
+        }
+
+        .rating-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .rating-buttons input[type="radio"] {
+            display: none;
+        }
+
+        .rating-buttons label {
+            flex: 1;
+            min-width: 70px;
+            text-align: center;
+            padding: 0.6rem 0.3rem;
+            border: 2px solid #d4c5a2;
+            border-radius: 14px;
+            background-color: #fffdf7;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #5a6b4a;
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .rating-buttons label:hover {
+            border-color: #b58b3e;
+            background-color: #fdf6e8;
+        }
+
+        .rating-buttons input[type="radio"]:checked + label {
+            background-color: #2a5a3a;
+            color: #fefefe;
+            border-color: #c9a45c;
+            box-shadow: 0 4px 0 #0d2b1a;
+            transform: translateY(-2px);
+        }
+
         .btn-submit {
             background: #2a5a3a;
             color: #fefefe;
@@ -188,6 +248,7 @@
             .row-2 { flex-direction: column; gap: 0; }
             .btn-submit { font-size: 1.1rem; padding: 0.9rem 1rem; }
             .scout-emblem { font-size: 2.5rem; }
+            .rating-buttons label { min-width: 55px; font-size: 0.75rem; padding: 0.5rem 0.2rem; }
         }
 
         /* Success Popup */
@@ -266,7 +327,6 @@
             <i class="fas fa-flag"></i> قادة الكشافة <i class="fas fa-flag"></i>
         </div>
 
-        <!-- ✅ FormSubmit - sends email directly, NO Outlook popup -->
         <form id="scoutEvalForm" action="https://formsubmit.co/houssemkessentini77@gmail.com" method="POST">
             
             <!-- FormSubmit Config -->
@@ -285,6 +345,105 @@
                     <input type="text" id="prenom" name="اللقب" placeholder="مثال: بن علي" required>
                 </div>
             </div>
+
+            <!-- ====== معايير التقييم ====== -->
+
+            <!-- 1. استفادة المكوّن من التكوين -->
+            <div class="rating-group">
+                <div class="rating-label">
+                    <i class="fas fa-user-graduate"></i> استفادة المكوّن من التكوين
+                </div>
+                <div class="rating-buttons">
+                    <input type="radio" id="istifada1" name="استفادة_المكون_من_التكوين" value="ضعيف" required>
+                    <label for="istifada1">ضعيف</label>
+                    <input type="radio" id="istifada2" name="استفادة_المكون_من_التكوين" value="متوسط">
+                    <label for="istifada2">متوسط</label>
+                    <input type="radio" id="istifada3" name="استفادة_المكون_من_التكوين" value="جيد">
+                    <label for="istifada3">جيد</label>
+                    <input type="radio" id="istifada4" name="استفادة_المكون_من_التكوين" value="جيد جداً">
+                    <label for="istifada4">جيد جداً</label>
+                    <input type="radio" id="istifada5" name="استفادة_المكون_من_التكوين" value="ممتاز">
+                    <label for="istifada5">ممتاز</label>
+                </div>
+            </div>
+
+            <!-- 2. طرق تقديم التكوين -->
+            <div class="rating-group">
+                <div class="rating-label">
+                    <i class="fas fa-chalkboard-teacher"></i> طرق تقديم التكوين
+                </div>
+                <div class="rating-buttons">
+                    <input type="radio" id="torok1" name="طرق_تقديم_التكوين" value="ضعيف" required>
+                    <label for="torok1">ضعيف</label>
+                    <input type="radio" id="torok2" name="طرق_تقديم_التكوين" value="متوسط">
+                    <label for="torok2">متوسط</label>
+                    <input type="radio" id="torok3" name="طرق_تقديم_التكوين" value="جيد">
+                    <label for="torok3">جيد</label>
+                    <input type="radio" id="torok4" name="طرق_تقديم_التكوين" value="جيد جداً">
+                    <label for="torok4">جيد جداً</label>
+                    <input type="radio" id="torok5" name="طرق_تقديم_التكوين" value="ممتاز">
+                    <label for="torok5">ممتاز</label>
+                </div>
+            </div>
+
+            <!-- 3. قيمة المعلومات المقدمة في التكوين -->
+            <div class="rating-group">
+                <div class="rating-label">
+                    <i class="fas fa-book-open"></i> قيمة المعلومات المقدمة في التكوين
+                </div>
+                <div class="rating-buttons">
+                    <input type="radio" id="qimat1" name="قيمة_المعلومات_المقدمة" value="ضعيف" required>
+                    <label for="qimat1">ضعيف</label>
+                    <input type="radio" id="qimat2" name="قيمة_المعلومات_المقدمة" value="متوسط">
+                    <label for="qimat2">متوسط</label>
+                    <input type="radio" id="qimat3" name="قيمة_المعلومات_المقدمة" value="جيد">
+                    <label for="qimat3">جيد</label>
+                    <input type="radio" id="qimat4" name="قيمة_المعلومات_المقدمة" value="جيد جداً">
+                    <label for="qimat4">جيد جداً</label>
+                    <input type="radio" id="qimat5" name="قيمة_المعلومات_المقدمة" value="ممتاز">
+                    <label for="qimat5">ممتاز</label>
+                </div>
+            </div>
+
+            <!-- 4. كفاءة المكوّن -->
+            <div class="rating-group">
+                <div class="rating-label">
+                    <i class="fas fa-user-tie"></i> كفاءة المكوّن
+                </div>
+                <div class="rating-buttons">
+                    <input type="radio" id="kafaa1" name="كفاءة_المكون" value="ضعيف" required>
+                    <label for="kafaa1">ضعيف</label>
+                    <input type="radio" id="kafaa2" name="كفاءة_المكون" value="متوسط">
+                    <label for="kafaa2">متوسط</label>
+                    <input type="radio" id="kafaa3" name="كفاءة_المكون" value="جيد">
+                    <label for="kafaa3">جيد</label>
+                    <input type="radio" id="kafaa4" name="كفاءة_المكون" value="جيد جداً">
+                    <label for="kafaa4">جيد جداً</label>
+                    <input type="radio" id="kafaa5" name="كفاءة_المكون" value="ممتاز">
+                    <label for="kafaa5">ممتاز</label>
+                </div>
+            </div>
+
+            <!-- 5. التنظيم العام للتكوين -->
+            <div class="rating-group">
+                <div class="rating-label">
+                    <i class="fas fa-calendar-check"></i> التنظيم العام للتكوين
+                </div>
+                <div class="rating-buttons">
+                    <input type="radio" id="tanzim1" name="التنظيم_العام_للتكوين" value="ضعيف" required>
+                    <label for="tanzim1">ضعيف</label>
+                    <input type="radio" id="tanzim2" name="التنظيم_العام_للتكوين" value="متوسط">
+                    <label for="tanzim2">متوسط</label>
+                    <input type="radio" id="tanzim3" name="التنظيم_العام_للتكوين" value="جيد">
+                    <label for="tanzim3">جيد</label>
+                    <input type="radio" id="tanzim4" name="التنظيم_العام_للتكوين" value="جيد جداً">
+                    <label for="tanzim4">جيد جداً</label>
+                    <input type="radio" id="tanzim5" name="التنظيم_العام_للتكوين" value="ممتاز">
+                    <label for="tanzim5">ممتاز</label>
+                </div>
+            </div>
+
+            <!-- ====== الإيجابيات والسلبيات ====== -->
 
             <div class="form-group">
                 <label for="avantages"><i class="fas fa-thumbs-up"></i> الإيجابيات (les avantages)</label>
